@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using WinFormMVC.Controller;
+using WinFormMVC.Controller.Interfaces;
 using WinFormMVC.Model;
 using WinFormMVC.Model.Interfaces;
 using WinFormMVC.View.Interfaces;
@@ -17,6 +17,10 @@ namespace WinFormMVC.View
 
             _MP3Player = mP3Player;
             _MP3Controller = mP3Controller;
+
+
+            //FrmVolumeDisplay frmVolumeDisplay = new FrmVolumeDisplay(_MP3Player);
+            //frmVolumeDisplay.Show();
         }
 
         public void Update(Song CurrentSong)

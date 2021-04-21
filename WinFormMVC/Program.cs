@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using WinFormMVC.Controller;
+using WinFormMVC.Controller.Interfaces;
 using WinFormMVC.Model;
 using WinFormMVC.Model.Interfaces;
 using WinFormMVC.View;

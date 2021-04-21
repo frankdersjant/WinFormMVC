@@ -10,9 +10,11 @@ namespace WinFormMVC.Model
         private Song _currentSong;
         public Song CurrentSong { get { return _currentSong; } }
 
-        public bool isPlaying { get { return isPlaying; } }
+        private bool _IsPlaying;
+        public bool isPlaying { get { return _IsPlaying; } }
 
-        public int VolumeLevel { get { return VolumeLevel; } }
+        private int _VolumeLevel;
+        public int VolumeLevel { get { return _VolumeLevel; } }
 
 
         private List<ISongObserver> songObservers;
@@ -22,6 +24,8 @@ namespace WinFormMVC.Model
         public Mp3Player()
         {
             _currentSong = null;
+            _IsPlaying = true;
+            _VolumeLevel = 0;
 
             songObservers = new List<ISongObserver>();
             volumeObservers = new List<IVolumeObserver>();
