@@ -66,6 +66,7 @@ namespace WinFormMVC.View
             this.btnVolumeUp.TabIndex = 2;
             this.btnVolumeUp.Text = "Volume Up";
             this.btnVolumeUp.UseVisualStyleBackColor = true;
+            this.btnVolumeUp.Click += new System.EventHandler(this.btnVolumeUp_Click);
             // 
             // btnVolumeDown
             // 

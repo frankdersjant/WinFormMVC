@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WinFormMVC.Model.Interfaces;
 using WinFormMVC.View.Interfaces;
 
@@ -10,12 +11,16 @@ namespace WinFormMVC.Model
         private Song _currentSong;
         public Song CurrentSong { get { return _currentSong; } }
 
+        
         private bool _IsPlaying;
         public bool isPlaying { get { return _IsPlaying; } }
+
 
         private int _VolumeLevel;
         public int VolumeLevel { get { return _VolumeLevel; } }
 
+
+        private List<Song> _playList;
 
         private List<ISongObserver> songObservers;
 
@@ -23,8 +28,18 @@ namespace WinFormMVC.Model
 
         public Mp3Player()
         {
-            _currentSong = null;
-            _IsPlaying = true;
+            Song newSoung1 = new Song(1, "TransMission", "Joy Division");
+            Song newSoung2 = new Song(2, "Riverman", "Nick Drake");
+            Song newSoung3 = new Song(3, "Overkill", "Motorhead");
+
+            _playList = new List<Song>();
+            _playList.Add(newSoung1);
+            _playList.Add(newSoung2);
+            _playList.Add(newSoung3);
+
+            _currentSong = _playList.First();
+
+            _IsPlaying = false;
             _VolumeLevel = 0;
 
             songObservers = new List<ISongObserver>();
@@ -43,22 +58,23 @@ namespace WinFormMVC.Model
 
         public void Next()
         {
-            throw new NotImplementedException();
+            NotifySongObservers();
         }
 
         public void Play()
         {
-            throw new NotImplementedException();
+            NotifySongObservers();
         }
 
         public void SetVolume(int volume)
         {
-            throw new NotImplementedException();
+            _VolumeLevel = volume;
+            NotifyVolumeObservers();
         }
 
         public void Stop()
         {
-            throw new NotImplementedException();
+            NotifySongObservers();
         }
 
         private void NotifySongObservers()
