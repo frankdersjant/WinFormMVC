@@ -43,11 +43,10 @@ namespace WinFormMVC.View
             // labelVolume
             // 
             this.labelVolume.AutoSize = true;
-            this.labelVolume.Location = new System.Drawing.Point(113, 43);
+            this.labelVolume.Location = new System.Drawing.Point(140, 47);
             this.labelVolume.Name = "labelVolume";
-            this.labelVolume.Size = new System.Drawing.Size(38, 15);
+            this.labelVolume.Size = new System.Drawing.Size(0, 15);
             this.labelVolume.TabIndex = 1;
-            this.labelVolume.Text = "label1";
             // 
             // FrmVolumeDisplay
             // 

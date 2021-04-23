@@ -11,7 +11,7 @@ namespace WinFormMVC.Model
         private Song _currentSong;
         public Song CurrentSong { get { return _currentSong; } }
 
-        
+
         private bool _IsPlaying;
         public bool isPlaying { get { return _IsPlaying; } }
 
@@ -28,19 +28,14 @@ namespace WinFormMVC.Model
 
         public Mp3Player()
         {
-            Song newSoung1 = new Song(1, "TransMission", "Joy Division");
-            Song newSoung2 = new Song(2, "Riverman", "Nick Drake");
-            Song newSoung3 = new Song(3, "Overkill", "Motorhead");
-
             _playList = new List<Song>();
-            _playList.Add(newSoung1);
-            _playList.Add(newSoung2);
-            _playList.Add(newSoung3);
+
+            CreatePlaylist();
 
             _currentSong = _playList.First();
 
             _IsPlaying = false;
-            _VolumeLevel = 0;
+            _VolumeLevel = 1;
 
             songObservers = new List<ISongObserver>();
             volumeObservers = new List<IVolumeObserver>();
@@ -58,6 +53,10 @@ namespace WinFormMVC.Model
 
         public void Next()
         {
+            Song Currunt = _currentSong;
+
+            _currentSong = _playList.SkipWhile(x => x.SongId != _currentSong.SongId).Skip(1).DefaultIfEmpty(_playList[0]).FirstOrDefault();
+
             NotifySongObservers();
         }
 
@@ -91,6 +90,17 @@ namespace WinFormMVC.Model
             {
                 volumeObserver.Update(VolumeLevel);
             }
+        }
+
+        private void CreatePlaylist()
+        {
+            Song newSoung1 = new Song(1, "TransMission", "Joy Division");
+            Song newSoung2 = new Song(2, "Riverman", "Nick Drake");
+            Song newSoung3 = new Song(3, "Overkill", "Motorhead");
+
+            _playList.Add(newSoung1);
+            _playList.Add(newSoung2);
+            _playList.Add(newSoung3);
         }
     }
 }

@@ -24,7 +24,7 @@ namespace WinFormMVC.View
             FrmVolumeDisplay frmVolumeDisplay = new FrmVolumeDisplay(_MP3Player);
             frmVolumeDisplay.Show();
 
-            Update(0);
+            Update(1);
             Update(null);
         }
 
@@ -52,6 +52,16 @@ namespace WinFormMVC.View
         private void btnVolumeUp_Click(object sender, System.EventArgs e)
         {
             _MP3Controller.VolumeUp();
+        }
+
+        private void btnNext_Click(object sender, System.EventArgs e)
+        {
+            _MP3Controller.Next();
+        }
+
+        private void btnVolumeDown_Click(object sender, System.EventArgs e)
+        {
+            _MP3Controller.VolumeDown();
         }
     }
 }

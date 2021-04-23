@@ -57,6 +57,7 @@ namespace WinFormMVC.View
             this.btnNext.TabIndex = 1;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnVolumeUp
             // 
@@ -76,6 +77,7 @@ namespace WinFormMVC.View
             this.btnVolumeDown.TabIndex = 3;
             this.btnVolumeDown.Text = "Volume Down";
             this.btnVolumeDown.UseVisualStyleBackColor = true;
+            this.btnVolumeDown.Click += new System.EventHandler(this.btnVolumeDown_Click);
             // 
             // lblSong
             // 
